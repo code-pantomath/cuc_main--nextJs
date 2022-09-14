@@ -1,0 +1,13 @@
+.signUpFormBoxContainer {
+    width: 30%;
+    margin: 3.5% auto;
+    padding: 1.75%;
+    border-top: .35vh solid #5f3dc4;
+    /* border-bottom: .25vh solid #5f3dc4; */
+
+}
+
+.signUpFormTextInput {
+    color: #fd0;
+    margin: 7.5% 0;
+}

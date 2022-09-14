@@ -1,0 +1,186 @@
+.section_1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* background-color: red; */
+    width: 100%;
+    height: 37vh;
+}
+
+.walletBalanceBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+    width: 35%;
+    height: 90%;
+    margin-left: 1.5%;
+    margin-top: 2.5%;
+    border-top: .45vh solid #5f3dc4;
+    /* border-bottom: .45vh solid #5f3dc4; */
+    border-radius: .75vh;
+    border-top-left-radius: 4.5vh;
+    border-bottom-left-radius: 4.5vh;
+    overflow: hidden;
+}
+
+.balanceBadge {
+    width: 42.5%;
+    height: 75%;
+    border-radius: 100%;
+    border-color: #1a1a1a;
+    transform: translate(-0%, -0%) scale(75%, 75%);
+    opacity: 90%;
+    box-shadow: .25vh .25vh 25.25vh .25vh #5f3dc4;
+    overflow: hidden;
+}
+
+.balanceBadgeTxt {
+    font-size: 2.5rem;
+    font-weight: bold;
+    opacity: 93%;
+}
+
+.balanceBadgeIcon {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform: translate(-27.5%, -36.75%) scale(145%);
+    opacity: 45%;
+    border-color: #1a1a1a;
+    color: #5f3dc4;
+}
+
+.styles.balanceAddBtn {
+    margin-bottom: 7.5%;
+}
+.styles.balanceAddBtn:hover {
+    border-color: #fd0;
+}
+
+
+.walletBalanceHistoryBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    
+    width: 55%;
+    height: 90%;
+    margin-left: 1.5%;
+    margin-top: 2.5%;
+    border-top: .45vh solid #5f3dc4;
+    /* border-bottom: .45vh solid #5f3dc4; */
+    border-radius: .75vh;
+    border-top-right-radius: 4.5vh;
+    border-bottom-right-radius: 4.5vh;
+    overflow: hidden;
+}
+
+.walletBalanceHistoryBoxStack {
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* align-items: center; */
+    
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+.walletBalanceHistoryBoxStackItem {
+    /* display: flex; */
+    /* flex-direction: row; */
+    /* align-items: center; */
+    /* justify-content: space-around; */
+
+    width: 90%;
+    height: 20%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+
+
+/* /// */
+
+
+.section_2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 2.5%;
+
+    width: 100%;
+    height: 45%;
+}
+
+.walletBalanceLoaderBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: space-around; */
+    
+    width: 55%;
+    height: 100%;
+    margin-right: 2.55%;
+    margin-top: -.75%;
+    border-bottom: .45vh solid #5f3dc4;
+    /* border-bottom: .45vh solid #5f3dc4; */
+    border-radius: .75vh;
+    border-top-right-radius: 4.5vh;
+    border-bottom-right-radius: 4.5vh;
+    /* overflow: hidden; */
+}
+
+.amountsChips {
+    justify-self: flex-start;
+}
+
+/* .paymentMethodsDropDownMenu {
+    width: 25%;
+    align-self: center;
+} */
+
+.paymentMethodsMenu {
+    /* display: flex; */
+    align-self: center;
+    justify-self: center;
+    margin-top: 2.75%;
+}
+
+.paymentMethodImgContainer {
+    align-self: center;
+    justify-self: center;
+}
+
+.payActionBtn {
+    align-self: center;
+    justify-self: flex-end;
+    margin-top: 5.25vh;
+
+    /* transform: translateY(18vh); */
+}
+
+/* ///// */
+
+
+.walletBalanceTransfersBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+    width: 35%;
+    height: 100%;
+    margin-left: 4.25%;
+    margin-top: -.65%;
+    border-bottom: .45vh solid #5f3dc4;
+    /* border-bottom: .45vh solid #5f3dc4; */
+    border-radius: .75vh;
+    border-top-left-radius: 4.5vh;
+    border-bottom-left-radius: 4.5vh;
+    /* overflow: hidden; */
+}
+

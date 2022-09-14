@@ -1,0 +1,70 @@
+/* :root {
+    --primColor: #5f3dc4;
+    --secColor: #fd0;
+} */
+
+
+.mainBox {
+    /* position: absolute; */
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 4.55%;
+
+    border: .25vh dashed #5f3dc4;
+    border-radius: 1.55vh;
+    width: 50%;
+    height: 45%;
+    margin: 0 auto;
+    margin-top: 7.55%;
+
+    opacity: 75%;
+}
+
+.courseImgContainer {
+    border-top: ".45vh solid #5f3dc4";
+    border-radius: .5vh;
+    overflow: hidden;
+    /* opacity: 90%; */
+}
+.courseImg {
+    /* width: 100%; */
+    /* height: 100%; */
+    object-fit: cover;
+    opacity: 90%;
+}
+
+.buyBtnsContainer {
+    width: 100%;
+    height: 100%;
+
+}
+.buyBtn {
+    border-bottom: ".25vh solid #5f3dc4";
+    width: 25%;
+    background-color: #1a1b1e;
+}
+.buyBtn:hover {
+    color: #fd0;
+    border-bottom: ".25vh solid #fd0";
+}
+
+
+.drawerAccountsCardsContainer {
+    height: 80%;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    /* gap: 2.5%; */
+
+    overflow: hidden;
+}
+
+
+.confirmGitfPurchaseModal {
+    border: ".25vh solid #5f3dc4"
+}
