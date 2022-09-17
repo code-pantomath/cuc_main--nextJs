@@ -1,5 +1,7 @@
 import { AppProps } from 'next/app';
 import Head from 'next/head';
+import Script form 'next/script';
+
 import { ColorSchemeProvider, MantineProvider, ScrollArea, useMantineTheme } from '@mantine/core';
 import MainAppShell from '../Layouts/MainAppShell';
 import { Fragment, useState } from 'react';
@@ -40,7 +42,19 @@ function App(props: AppProps) {
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
         <meta name="description" content="A website that offers services to get Udemy courses for a lower price."></meta>
       </Head>
+      
+      <Script strategy="lazyOnload" src={`https://www.googletagmanager.com/gtag/js?id=UA-187621071-2`} />
+      <Script strategy="lazyOnload" >
+          window?.dataLayer = window?.dataLayer || [];
+          function gtag(){dataLayer?.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'UA-187621071-2', {
+            page_path: window?.location?.pathname,
+          });
+      <Script/>
+      
 
+        
       <MantineProvider
         withGlobalStyles
         withNormalizeCSS
