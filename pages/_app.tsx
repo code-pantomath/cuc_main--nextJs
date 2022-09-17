@@ -51,7 +51,7 @@ function App(props: AppProps) {
           gtag('config', 'UA-187621071-2', {
             page_path: window?.location?.pathname,
           });
-      <Script/>
+      </Script>
       
 
         
