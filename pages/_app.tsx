@@ -1,6 +1,6 @@
 import { AppProps } from 'next/app';
 import Head from 'next/head';
-import Script form 'next/script';
+import Script from 'next/script';
 
 import { ColorSchemeProvider, MantineProvider, ScrollArea, useMantineTheme } from '@mantine/core';
 import MainAppShell from '../Layouts/MainAppShell';
