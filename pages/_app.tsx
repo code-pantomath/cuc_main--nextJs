@@ -95,7 +95,7 @@ function App(props: AppProps) {
 
   :
 
-  <div style={{ fontFamily:"Arial", }} >
+  <div style={{ fontFamily:"sans-serif", }} >
     Currently, we don't support mobile phones or tablets.
   </div>
 
