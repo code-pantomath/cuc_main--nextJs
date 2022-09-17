@@ -10,7 +10,6 @@ export default class _Document extends Document {
     return (
       <Html >
         <Head >
-          <!-- Google tag (gtag.js) - Google Analytics -->
             <script async src="https://www.googletagmanager.com/gtag/js?id=UA-187621071-2">
             </script>
             <script>
