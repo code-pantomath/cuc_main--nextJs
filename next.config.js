@@ -65,7 +65,7 @@ const nextConfig = {
     API_MAIN_SERVER_ENDPOINT_URL: "https://t8w1ywq447.execute-api.eu-central-1.amazonaws.com",
     // API_MAIN_SERVER_ENDPOINT_URL: "https://localhost:7052",
 
-    SUPPORT_SERVER_WEB_SOCKET__ENDPOINT_URL: "https://cheapudemy-com--support-server.herokuapp.com",
+    SUPPORT_SERVER_WEB_SOCKET__ENDPOINT_URL: "https://pp01--node-test-01--n5gfpf86nbvs.code.run",
     // SUPPORT_SERVER_WEB_SOCKET__ENDPOINT_URL: "http://127.0.0.1:40001",
   },
   
