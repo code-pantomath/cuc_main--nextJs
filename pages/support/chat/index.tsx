@@ -120,7 +120,6 @@ const SupportChat: NextPage = (props) => {
 
 
     const handleNewUserMessage = (msg: string) => {
-        ${msg}`);
 
         if (msgsStrArr.length === 0) {
             setTimeout(() => {
