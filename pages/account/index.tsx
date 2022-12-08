@@ -74,7 +74,7 @@ const account: NextPage = () => {
     (
       async () => {
         const userUdemAccounts = await contacts.API.GetUdemAccounts({ id: session?.user?.id as number, });
-        // del// console.log(userUdemAccounts);
+        console.log(userUdemAccounts);
         setUdemAccountsArr(userUdemAccounts);
       }
     )()
@@ -90,7 +90,7 @@ const account: NextPage = () => {
     
       setUdemAccountsArr(res);
 
-      // del// console.log(res);
+      console.log(res);
 
     } catch(err) {
       setErrNoti({
@@ -194,7 +194,7 @@ const account: NextPage = () => {
 
 
                     <TextInput
-                      // placeholder={session?.user?.name?.split(' ')?.at(0) || ''}
+                      ''}
                       placeholder={session?.user?.name || ''}
                       label="Name"
                       disabled
