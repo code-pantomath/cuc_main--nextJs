@@ -77,9 +77,9 @@ const app: NextPage = (props) => {
     if (URL.trim()?.replace(":
 
     
-    const url:string = URL.trim().toLowerCase().replace("www.", "");
+    const url:string = URL?.trim().toLowerCase().replace("www.", "");
 
-    if (url.startsWith("https:
+    if (url.startsWith("https://udemy.com/"))
       return url;
     }
 
