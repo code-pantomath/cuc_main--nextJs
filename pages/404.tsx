@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 
-function Page_404 ({ data }:any) {
+function Page_404 ({ data }) {
     const router = useRouter();
 
     try {
@@ -22,7 +22,7 @@ function Page_404 ({ data }:any) {
 // export async function getStaticProps() {
   
 //     return {
-//         // notFound: true, // `redirect` and `notFound` can not both be returned from getStaticProps at the same time.
+//         // notFound: true, // This approach wouldb't work bc `redirect` and `notFound` can not both be returned from getStaticProps at the same time.
 //         redirect: {
 //             destination: '/',
 //             permanent: false,
