@@ -78,8 +78,7 @@ export default async function handler(
       let accountServicePrice:string = "5.99";
 
       if (!isStudentsAmountOk) accountServicePrice = "Not avilable!";
-
-
+      
 
       res.status(200).json({
         name,
