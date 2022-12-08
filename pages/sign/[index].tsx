@@ -73,19 +73,15 @@ const sign: NextPage = (theProps) => {
 
   const [isNotiShown, setIsNotiShown] = useState<boolean>(false);
 
-  // const [ipAddress, setIpAddress] = useState<string>("");
+  const [ipAddress, setIpAddress] = useState<string>("");
 
 
 
   useEffect(() => {
     (
       async () => {
-        // const getUserIp:(() => Promise<string>) = async () => await contacts.API.GetUserIpAdress();
         const ip = await contacts.API.GetUserIpAdress();
-        // setIpAddress(ip);
-        // del// console.log(ip);
-        // // del// console.log("ss");
-        // // del// console.log(ipAddress);
+        setIpAddress(() => ip);
       }
     )();
   }, [])
@@ -95,19 +91,7 @@ const sign: NextPage = (theProps) => {
     const _route:string|undefined = router.query.index?.toString().trim().toLowerCase();
     setRoute(_route);
 
-    // del// console.log(router.query.index?.toString().trim().toLowerCase());
     ((_route !== "up" && _route !== "in" && _route !== "out") && typeof _route !== "undefined") && router.replace("/");
-
-    //////
-
-    //  (
-    //   async () => {
-    //     // const { data: { ip, }, } = await axios.get("/api/UserInfo/ip") as any;
-    //     // const ip = await contacts.API.GetUserIpAdress();
-    //     // // del// console.log(ip);
-    //     // setIpAddress(ip);
-    //   }
-    //  )();
 
   }, [route_]);
 
@@ -216,10 +200,7 @@ const sign: NextPage = (theProps) => {
 
   //// SIGN_IN LOGIC CODE ENDS . /////
 
-
-  // const pswdChanged_Ev = (e:ChangeEvent):void => isSignUp ? Form_SignUp.setFieldValue("pswd", e?.target?.nodeValue as string) : Form_SignIn.setFieldValue("pswd", e?.target?.nodeValue as string);
-  // const emailChanged_Ev = (e:ChangeEvent):void => isSignUp ? Form_SignUp.setFieldValue("email", e?.target?.nodeValue as string) : Form_SignIn.setFieldValue("email", e?.target?.nodeValue as string);
-
+  
   
   async function SubmitForm_EV (values: (typeof Form_SignUp.values | typeof Form_SignIn.values)) {
     
@@ -234,10 +215,9 @@ const sign: NextPage = (theProps) => {
             const { title, detail } = err.response?.data as signError;
             setSignErr(() => ({ title, detail, }));
             setTimeout(() => setSignErr(undefined), 2.75 * 1000)
-            // del// console.log(signErr);
+            
           }
           else {
-            // del// console.log(err.message || err);
           }
         })
         ;
@@ -248,11 +228,6 @@ const sign: NextPage = (theProps) => {
           setIsNotiShown(true);
           setTimeout(() => setIsNotiShown(false), 2.75 * 1000);
         }
-
-
-        // del// console.log(userRegistrationDataRes);
-        // // del// console.log(ipAddress);
-        // del// console.log(res);
 
 
       } catch (err) {
@@ -269,26 +244,17 @@ const sign: NextPage = (theProps) => {
             const { title, detail } = err.response?.data as signError;
             setSignErr(() => ({ title, detail, }));
             setTimeout(() => setSignErr(undefined), 2.75 * 1000)
-            // del// console.log(signErr);
-          }
-          else {
-            // del// console.log(err.message || err);
           }
         })
         ;
 
         setUserLogInDataRes(res as IUserLoginAPIData);
 
-        // del// console.log(res);
-
         if (res?.email) {
 
           const loggingRes = await contacts.CLIENT.LoginUser(res);
 
           if (loggingRes) {
-            // // del// console.log(loggingRes);
-            // // del// console.log(isAuthLoading);
-            // del// console.log(session);
 
             setIsNotiShown(true);
             setTimeout(() => setIsNotiShown(false), 2.75 * 1000);
@@ -298,8 +264,6 @@ const sign: NextPage = (theProps) => {
           } else {
             setTimeout(async () => await SubmitForm_EV(Form_SignIn.values), 1000);
           }
-
-          // setTimeout(() => session && router.push("/"), 3000);
 
         }
 
@@ -348,9 +312,6 @@ const sign: NextPage = (theProps) => {
       </Transition>
 
 
-      {/* <img src="/public/svgs/home/sec3_Bg1.svg" style={{ position:"absolute", zIndex:0, width:"100%", height:"100%", transform:"scale(111%)", }} /> */}
-
-
       <Paper className={styles.signUpFormBoxContainer} shadow="sm" sx={{ opacity:Number(isSignUp)+1, }} style={{ borderColor:!isSignUp?"#fd0":theme.colors.violet[9], }} >
 
         <Box sx={{ maxWidth: 300 }} mx="auto" >
@@ -393,7 +354,6 @@ const sign: NextPage = (theProps) => {
               style={{marginBottom:"10%"}}
 
               onChange={(e) => {
-                // // del// console.log(e.currentTarget.value);
                 if (isSignUp) {
                   Form_SignUp.setFieldValue("email", e.currentTarget.value);
                 } else {
@@ -480,7 +440,6 @@ const sign: NextPage = (theProps) => {
             <Button onClick={async () => {
               await contacts.CLIENT.LogoutUser();
               // router.reload();
-              // router.replace('/');
             }} 
             >
               Yes, Confirm
