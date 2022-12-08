@@ -11,23 +11,22 @@ import { io, Socket } from "socket.io-client";
 import { getSession, useSession } from "next-auth/client";
 import { GetServerSidePropsContext, NextPage } from "next";
 
-// Create false methods to avoid undefiend errors berfore re-asigning the "socket" variable to a real "socket.io"'s socket...
+
 let socket:Socket = {
     emit() {},
     on() {},
     once(){},
 } as unknown as Socket;
-////
 
 
 const SupportChat: NextPage = (props) => {
     const router = useRouter();
     const [session, isAuthSessionLoading] = useSession();
-    // const { user }:any = session as any;
+    ;
 
-    // const [theUserId, setTheUserId] = useState<string|number>("");
+    useState<string|number>("");
 
-    const USER_ID = (props as any)?.userId ||(session?.user as any)?.id;
+    const USER_ID = (props )?.userId ||(session?.user )?.id;
 
 
     const [msgsStrArr, setMsgsStrArr] = useState<string[]>([]);
@@ -42,18 +41,18 @@ const SupportChat: NextPage = (props) => {
 
         
         socket?.on('connection', (connection, i) => {
-            // //// console.log('The client is connected !');
-            //// console.log(' ')
+            !');
+            ')
         });
 
         
         socket?.on("Send_AllMsgs", ({msgs}) => {
-            // setMsgsData(() => msgs);
+            msgs);
 
-            // //// console.log(msgsData);
+            console.log(msgsData);
             for (let i = 0; i < msgs.length; i++) {
-                // //// console.log(msgs);
-                (msgs[i] as any)?.kind === "user" ? sendClientMsg((msgs[i] as any)?.msg) : receivedResponceMsg((msgs[i] as any)?.msg, USER_ID, false);
+                console.log(msgs);
+                (msgs[i] )?.kind === "user" ? sendClientMsg((msgs[i])?.msg) : receivedResponceMsg((msgs[i])?.msg, USER_ID, false);
             }
             
             setIsChatBoxShown(true);
@@ -73,7 +72,7 @@ const SupportChat: NextPage = (props) => {
 
     const [isPageLoaded, setIsPageLoaded] = useState<boolean>(true);
 
-    // const [msgsData, setMsgsData] = useState([]);
+    useState([]);
 
 
     useEffect(() => {
@@ -86,7 +85,7 @@ const SupportChat: NextPage = (props) => {
                 RCW__imports.toggleWidget();
 
                 !USER_ID && setTimeout(() => setIsChatBoxShown(true), 1000);
-                // !USER_ID && setIsChatBoxShown(true);
+                setIsChatBoxShown(true);
                 
                 //
                 await webSocketInitializer();
@@ -96,7 +95,7 @@ const SupportChat: NextPage = (props) => {
         )()
         .then(() => {
             USER_ID && socket?.emit("Get_AllMsgs", {userId: USER_ID});
-            // !USER_ID && setIsChatBoxShown(true);
+            setIsChatBoxShown(true);
         });
             
 
@@ -121,7 +120,7 @@ const SupportChat: NextPage = (props) => {
 
 
     const handleNewUserMessage = (msg: string) => {
-        // //// console.log(`New message incoming! ${msg}`);
+        ${msg}`);
 
         if (msgsStrArr.length === 0) {
             setTimeout(() => {
@@ -136,8 +135,8 @@ const SupportChat: NextPage = (props) => {
         socket.emit("User_Msg", {
             msg,
             userId: USER_ID,
-            userIp: (session?.user as any)?.ip,
-            userEmail: (session?.user as any)?.email,
+            userIp: (session?.user )?.ip,
+            userEmail: (session?.user )?.email,
         });
     };
 
@@ -177,11 +176,11 @@ const SupportChat: NextPage = (props) => {
                                     senderPlaceHolder="Tell us.., what problem are you facing?"
                                     fullScreenMode
                                     autoFocus
-                                    // resizable={false}
+                                    resizable={false}
                                     emojis
                                     showBadge
                                     showCloseButton={false}
-                                    showTimeStamp={!USER_ID} // Means show time stamp only for none-registered users..
+                                    showTimeStamp={!USER_ID} users..
                                     
                                     profileAvatar="/svgs/support/chatAgentAvatar_2.svg"
                                     profileClientAvatar="/svgs/support/chatUserAvatar_1.svg"
@@ -201,7 +200,7 @@ const SupportChat: NextPage = (props) => {
 
 
 
-export const getServerSideProps = async (ctx:GetServerSidePropsContext) => ( { props: { userId: ((await getSession(ctx) as any)?.user?.id) || "", }, } ); // Extractin the user id from next-auth seession JWT token in server  before building...
+export const getServerSideProps = async (ctx:GetServerSidePropsContext) => ( { props: { userId: ((await getSession(ctx) )?.user?.id) || "", }, } ); building...
 
 
 export default SupportChat;
