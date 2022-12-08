@@ -47,7 +47,7 @@ export default NextAuth ({
                 const { email, name, password, id, ip, uniqueCode, wallet } = credentials;
 
                 if (!email) throw new Error(`Couldn't find the user !`);
-                else return { // You can return any object or even an empty one, this will be converted to the JWT...
+                else return { // obj will be encoded in the JWT...
                     name,
                     email,
                     id,
