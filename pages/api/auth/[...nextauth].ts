@@ -1,12 +1,8 @@
 import NextAuth, { User } from "next-auth";
 import Providers from "next-auth/providers";
-// import contacts from '../../../contacts/contacts';
 import { IUserLoginAPIData } from '../../../contacts/interfaces/Interfaces';
 
 
-// type Data = {
-//   name: string
-// }
 
 interface User__Add {
     id: string | number,
@@ -50,14 +46,6 @@ export default NextAuth ({
 
                 const { email, name, password, id, ip, uniqueCode, wallet } = credentials;
 
-                // const res = await contacts.API.LoginUser({
-                //     email,
-                //     pswd: password,
-                //     ip,
-                // } as unknown as IUserLoginAPIData);
-
-                // // del// console.log(res.email);
-
                 if (!email) throw new Error(`Couldn't find the user !`);
                 else return { // You can return any object or even an empty one, this will be converted to the JWT...
                     name,
@@ -68,7 +56,7 @@ export default NextAuth ({
                 };
 
             },
-
+            
             
         } as any),
 
