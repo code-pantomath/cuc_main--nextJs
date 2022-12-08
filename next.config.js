@@ -44,28 +44,13 @@ const nextConfig = {
 
 
 
-  rewrites: [
-    {
-      source: "/:path*",
-      has: [
-        {
-          type: "host",
-          value: "app.cheapudemy.com"
-        }
-      ],
-      destination: "/app/:path*"
-    }
-  ],
-
-
-
   env: {
     WEBSITE_DOMAIN_NAME: "CheapUdemy.com",
 
     API_MAIN_SERVER_ENDPOINT_URL: "https://t8w1ywq447.execute-api.eu-central-1.amazonaws.com",
     // API_MAIN_SERVER_ENDPOINT_URL: "https://localhost:7052",
 
-    SUPPORT_SERVER_WEB_SOCKET__ENDPOINT_URL: "https://pp01--node-test-01--n5gfpf86nbvs.code.run",
+    SUPPORT_SERVER_WEB_SOCKET__ENDPOINT_URL: "https://t8w1ywq447.execute-api.eu-central-1.amazonaws.com/ws",
     // SUPPORT_SERVER_WEB_SOCKET__ENDPOINT_URL: "http://127.0.0.1:40001",
   },
   
