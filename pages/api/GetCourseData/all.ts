@@ -95,7 +95,7 @@ export default async function handler(
     } catch (err) {
       res.status(500).json({
         err,
-      } as Data)
+      } as ResData)
     }
 
   }
