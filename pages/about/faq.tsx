@@ -16,9 +16,6 @@ function QNA () {
 
     const $violet6 = theme.colors.violet[6];
 
-    // const fontSizeIncrementor = (size:MantineSize, incIdx:number) => theme.fontSizes[size] * incIdx as any;
-
-
 
     return (
         <Fragment>
