@@ -70,7 +70,7 @@ const wallet: NextPage = () => {
         (isPageLoaded && session) && (
             async () => {
 
-                const wallet = await contacts.API.GetUserWallet({ userId: (session?.user as any)?.id });;
+                const wallet = await contacts.API.GetUserWallet({ userId: (session?.user)?.id });;
                 setWalletData(wallet);
 
                 setWalletCreditsAmount(wallet.value!);
@@ -90,21 +90,8 @@ const wallet: NextPage = () => {
         setTimeout(() => {
             (
                 async () => {
-                    //////
-                    // const { data:res, } = await axios({
-                    //     method: "PATCH",
-                    //     url: `${process.env.API_MAIN_SERVER_ENDPOINT_URL}/api/users/${(session?.user as any)?.id}/wallet?amount=${paymentData?.amount}`,
-                    // });
-            
-                    // if (!res) return;
-            
-                    // // del// console.log(res);
-                    // setWalletCreditsAmount(res?.value);
-                    // setWalletData(res)
-                    //////
-
-
-                    const paymentPageUrl:string = (`https://oplata.info/asp2/pay_options.asp
+                    
+                    const paymentPageUrl:string = (`https:
                         ?id_d=${paymentData?.id}
                         &cart_uid=
                         &ai=
@@ -114,7 +101,7 @@ const wallet: NextPage = () => {
                         &digiuid=C8B52D08-B203-4341-BA3A-3D8BCF507B23
                         &_ow=
                         &_ids_shop=
-                        &failpage=https://cheapudemy.com/
+                        &failpage=https:
                         &email=${session?.user?.email || ''}
                     `);
 
@@ -139,7 +126,7 @@ const wallet: NextPage = () => {
         };
 
         const res = await contacts.API.TransferWalletCredits({
-            userId: (session?.user as any)?.id,
+            userId: (session?.user )?.id,
             receiverEmail: userEmailToTransferCreditsTo?.toLowerCase(),
             amount: walletCreditsTransferAmount,
         });
@@ -220,7 +207,7 @@ const wallet: NextPage = () => {
                                                     <Group align="center" position="apart" pr="lg" pl="lg" >
                                                         <h4 style={{color:theme.colors.violet[3]}} >{item.value||""}.0{item.value.toString().length<2?<>&nbsp;</>:''} <span style={{color:"#fd0"}} >$</span></h4>
 
-                                                        <h5 style={{opacity:.75,}} >{(item?.createdAt as any)?.split('T')[0].replace(/-/g, "/")}</h5>
+                                                        <h5 style={{opacity:.75,}} >{(item?.createdAt )?.split('T')[0].replace(/-/g, "/")}</h5>
 
                                                         {   
                                                             item.type === '+' ? <Plus color="#fd0" style={{opacity:.75,}} /> :
@@ -285,15 +272,15 @@ const wallet: NextPage = () => {
                                 </Chips>
 
 
-                                <Menu className={styles.paymentMethodsMenu} onChange={setIsPaymmentMethodsMenuOpened as any} placement="center" gutter={2} trigger="hover" withArrow control={<Button sx={{backgroundColor:theme.colors.dark[6], minWidth:"175%", transform:"translateX(-22.5%)"}} rightIcon={<ArrowNarrowDown size={18} color="#fd0" />} >{paymmentMethodsMenuCurrActiveOpt}</Button>} sx={{ '& .mantine-Menu-dropdown': { maxHeight:"5vh" }, }}  >
+                                <Menu className={styles.paymentMethodsMenu} onChange={setIsPaymmentMethodsMenuOpened } placement="center" gutter={2} trigger="hover" withArrow control={<Button sx={{backgroundColor:theme.colors.dark[6], minWidth:"175%", transform:"translateX(-22.5%)"}} rightIcon={<ArrowNarrowDown size={18} color="#fd0" />} >{paymmentMethodsMenuCurrActiveOpt}</Button>} sx={{ '& .mantine-Menu-dropdown': { maxHeight:"5vh" }, }}  >
                                     {
                                         walletPagePaymentMethods.methodsArr.map(({ name, img }, idx) => (
-                                            // <div>
+                                            
                                                 <Menu.Item key={name+idx} onClick={(e:any) => setPaymmentMethodsMenuCurrActiveOpt(name)} >
                                                     {name}
                                                 </Menu.Item>
-                                                // {/* <Divider sx={{opacity:.1}} /> */}
-                                            // </div>
+                                                
+                                            
                                         ))
                                     }
                                 </Menu>
@@ -304,7 +291,7 @@ const wallet: NextPage = () => {
                                     <div className={styles.paymentMethodImgContainer} >
                                         {
                                             walletPagePaymentMethods.methodsArr.map(({ name, img, }, idx) => {
-                                                const ICON = paymmentMethodsMenuCurrActiveOpt === name ? (img as any) : null;
+                                                const ICON = paymmentMethodsMenuCurrActiveOpt === name ? (img ) : null;
                                                 if (ICON) return <div/> || <ICON key={name+idx} size={25} style={{ display:"inline-block" }} />;
                                                 else return null;
                                             })
