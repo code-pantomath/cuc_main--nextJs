@@ -2,7 +2,7 @@ import { Fragment, useEffect, useState } from 'react'
 import type { NextPage } from 'next'
 
 import coreStyles from "../../styles/css/wallet.module.css";
-import styles from "../../styles/css/account.module.css"
+import styles from "../../styles/css/account.module.css";
 
 
 import {
@@ -170,7 +170,7 @@ const account: NextPage = () => {
             No, Cancel
           </Button>
 
-        </Group>
+        </Group>F
 
 
       </Modal>
