@@ -74,7 +74,6 @@ const account: NextPage = () => {
     (
       async () => {
         const userUdemAccounts = await contacts.API.GetUdemAccounts({ id: session?.user?.id as number, });
-        console.log(userUdemAccounts);
         setUdemAccountsArr(userUdemAccounts);
       }
     )()
@@ -90,7 +89,6 @@ const account: NextPage = () => {
     
       setUdemAccountsArr(res);
 
-      console.log(res);
 
     } catch(err) {
       setErrNoti({
