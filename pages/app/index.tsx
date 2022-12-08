@@ -32,7 +32,7 @@ import Link from 'next/link';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
-////
+
 interface ICourseData {
   name: string,
   description: string,
@@ -45,7 +45,7 @@ interface ICourseData {
 
   error?: any,
 }
-/////
+
 
 
 const app: NextPage = (props) => {
@@ -53,7 +53,7 @@ const app: NextPage = (props) => {
   const router = useRouter();
 
   const theme = useMantineTheme();
-  // const [MainShellOpened, setMainShellOpened] = useState(true);
+  
 
 
   const [errNoti, setErrNoti] = useState<string[]>(["", ""]);
@@ -65,21 +65,21 @@ const app: NextPage = (props) => {
   const [isCourseDataReady, setIsCourseDataReady] = useState<boolean>(false);
   const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(false);
 
-  //
+  
   const [userUdemAccounts, setUserUdemAccounts] = useState<Array<any>>([]);
   const [choosenAccData, setChoosenAccData] = useState<any>();
   const [choosenServiceType, setChoosenServiceType] = useState<IServicesPurchaseAPIData["serviceType"]|''>("");
-  //
+  
 
 
   const checkPastedUrl = useCallback<(URL:string,)=>(string | boolean)>((URL:string): (string | boolean) => {
     if (typeof URL !== "string") return false;
-    if (URL.trim()?.replace("://", "")?.split(' ').map(char => char==='/').length >= 4) return false;
+    if (URL.trim()?.replace(":
 
     
     const url:string = URL.trim().toLowerCase().replace("www.", "");
 
-    if (url.startsWith("https://udemy.com/course/")) {
+    if (url.startsWith("https:
       return url;
     }
 
@@ -87,7 +87,7 @@ const app: NextPage = (props) => {
 
   }, []);
 
-  // // del// console.log("noooo ", props.authSession)
+  
 
 
   useEffect(() => {
@@ -105,13 +105,13 @@ const app: NextPage = (props) => {
 
         const result = await responce.json();
 
-        // del// console.log(result);
+        
 
         setIsCourseDataReady(true);
         setCourseData(result);
 
         if (result && session) {
-          const udemAccounts = await contacts.API.GetUdemAccounts({ id: (session?.user as any)?.id as string, });
+          const udemAccounts = await contacts.API.GetUdemAccounts({ id: (session?.user)?.id as string, });
           setUserUdemAccounts(udemAccounts);
         }
 
@@ -177,14 +177,14 @@ const app: NextPage = (props) => {
 
   async function btnConfirmBuyServiceClick_EV (serviceType: IServicesPurchaseAPIData["serviceType"]|''):Promise<void> {
     const res = await contacts.API.PurchaseService({
-      userId: (session?.user as any)?.id,
+      userId: (session?.user )?.id,
       serviceType: serviceType as ("account" | "gift"),
-      order: pastedUrl?.split("https://www.udemy.com/course/")[1].replace(/\//g, '')?.split('?')[0],
+      order: pastedUrl?.split("https:
       udemEmail: choosenAccData?.email || session?.user?.email,
     })
     .catch((err: AxiosError | Error) => {
       if (axios.isAxiosError(err)) {
-        // // del// console.log((err.response?.data as any)?.detail);
+        
         const { title, detail } = err.response?.data as any;
         
         setChoosenAccData(undefined);
@@ -194,20 +194,20 @@ const app: NextPage = (props) => {
         setTimeout(() => setErrNoti(['','']), 2.75 * 1000)
       }
       else {
-        // del// console.log(err.message || err);
+        
       }
     })
     ;
 
-    // del// console.log(res);
+    
     
     res && router.push(`/app/services/purchase/${res?.createdAt?.replace(/[:|.|-]/g,'')}i${res?.id}/${serviceType}/${!res?.id ? 'un' : ''}success`)
 
   }
 
-  // async function btnConfirmBuyCourseAsAccountClick_EV():Promise<void> {
-  //   // del// console.log("sssdsd")
-  // }
+  
+  
+  
 
 
 
@@ -236,7 +236,7 @@ const app: NextPage = (props) => {
         className={styles.confirmGitfPurchaseModal}
         opened={!!choosenAccData||choosenServiceType==='account'}
         onClose={() => { setChoosenAccData(undefined); setChoosenServiceType(''); }}
-        title={choosenServiceType==="gift" ? `Are you sure?\nYou want us to get you the course to the account (${choosenAccData?.name}) as a gitf for (${+((courseData?.giftServicePrice || SERVICE_GIFT_PRICE) as any)-.00}$) ?` : `Are you sure?\nYou want us to send you the details of a new account that contains the course, for (${+((courseData?.accountServicePrice || SERVICE_ACCOUNT_PRICE) as any)-.00}$) ?`}
+        title={choosenServiceType==="gift" ? `Are you sure?\nYou want us to get you the course to the account (${choosenAccData?.name}) as a gitf for (${+((courseData?.giftServicePrice || SERVICE_GIFT_PRICE) )-.00}$) ?` : `Are you sure?\nYou want us to send you the details of a new account that contains the course, for (${+((courseData?.accountServicePrice || SERVICE_ACCOUNT_PRICE) )-.00}$) ?`}
         centered
       >
         
@@ -310,7 +310,7 @@ const app: NextPage = (props) => {
                     <Box component="div" style={{ width:"100%", minHeight:"100%", transform:"scaleY(85%)" }} >
                       <Text>According to this course details shown below, we value the service of getting the course for you as : </Text>
                       <Text>Gift <span><Gift size={16} color="#fd0" style={{transform:"translateY(15%)"}} /></span> :  <span style={{color:"#fd0"}} >{courseData?.giftServicePrice} $</span> </Text>
-                      <Text>Account <span><Mail size={16} color="#fd0" style={{transform:"translateY(15%)"}} /></span> :  <span style={{color:"#fd0"}} >{courseData?.accountServicePrice} {(((courseData?.accountServicePrice as any) + 0) - ((courseData?.accountServicePrice as any)+0) === 0) && "$"}</span> </Text>
+                      <Text>Account <span><Mail size={16} color="#fd0" style={{transform:"translateY(15%)"}} /></span> :  <span style={{color:"#fd0"}} >{courseData?.accountServicePrice} {(((courseData?.accountServicePrice ) + 0) - ((courseData?.accountServicePrice )+0) === 0) && "$"}</span> </Text>
                     </Box>
 
                   </Paper>
@@ -336,7 +336,7 @@ const app: NextPage = (props) => {
 
                 <Group mt="xl" className={styles.buyBtnsContainer} direction="row" align="center" noWrap position="center" >
                   <Button className={styles.buyBtn} onClick={() => btnBuyService_click("gift")} >BUY AS A GIFT SERVICE</Button>
-                  { (((courseData?.accountServicePrice as any) + 0) - ((courseData?.accountServicePrice as any)+0) === 0) &&
+                  { (((courseData?.accountServicePrice ) + 0) - ((courseData?.accountServicePrice )+0) === 0) &&
                     <Button className={styles.buyBtn} onClick={() => btnBuyService_click("account")} >BUY AS AN ACCOUNT SERVICE</Button>
                   }
                 </Group>
@@ -351,7 +351,7 @@ const app: NextPage = (props) => {
                   padding="xl"
                   size="xl"
                   position="bottom"
-                  // transition="pop"
+                  
                   >
 
                   {/* Drawer content */}
