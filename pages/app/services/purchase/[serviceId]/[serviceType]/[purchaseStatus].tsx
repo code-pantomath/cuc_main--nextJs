@@ -18,9 +18,6 @@ const ServicePurchaseStatus: NextPage<PageFunctionProps_Add> = function ({ isPur
     const [session, isSessionLoading] = useSession();
 
 
-    // const [isPurchaseExist, setIsPurchaseExist] = useState<boolean>(false);
-
-
     useEffect(() => {
         setTimeout(() => !session && router.replace('/'), 1000);
         setTimeout(() => router.replace('/account/wallet'), 5000);
