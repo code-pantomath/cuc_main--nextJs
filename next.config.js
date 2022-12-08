@@ -45,7 +45,7 @@ const nextConfig = {
 
 
   env: {
-    WEBSITE_DOMAIN_NAME: "CheapUdemy.com",
+    WEBSITE_DOMAIN_NAME: "CUC",
 
     API_MAIN_SERVER_ENDPOINT_URL: "https://t8w1ywq447.execute-api.eu-central-1.amazonaws.com",
     // API_MAIN_SERVER_ENDPOINT_URL: "https://localhost:7052",
